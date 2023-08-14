@@ -7,8 +7,8 @@
     "dev": "nodemon",
     "prepare": "husky install",
     "lint": "eslint ./**/*.{ts,tsx,js,jsx} --fix",
-    "test": "jest",
-    "test:staged" : "jest"
+    "test": "jest --passWithNoTests",
+    "test:staged" : "jest --passWithNoTests"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
