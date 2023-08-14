@@ -7,11 +7,13 @@
     "dev": "nodemon",
     "prepare": "husky install",
     "lint": "eslint ./**/*.{ts,tsx,js,jsx} --fix",
-    "test": "jest"
+    "test": "jest",
+    "test:staged" : "jest"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
       "npm run lint",
+      "npm run test:staged",
       "git add"
     ]
   },
