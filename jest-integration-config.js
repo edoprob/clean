@@ -2,4 +2,3 @@
 const config = require('./test.config')
 config.testMatch = ['**/.spec.ts*']
 module.exports = config
-// aaa
