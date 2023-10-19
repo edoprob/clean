@@ -7,8 +7,12 @@
     "dev": "nodemon",
     "prepare": "husky install",
     "lint": "eslint ./**/*.{ts,tsx,js,jsx} --fix",
-    "test": "jest --passWithNoTests --watch",
-    "test:staged" : "jest --passWithNoTests"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:staged" : "npm test -- --findRelatedTests",
+    "test:ci" : "npm test -- --coverage"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
@@ -16,6 +20,12 @@
       "npm run test:staged",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:ci"
+    }
   },
   "keywords": [],
   "author": "",
