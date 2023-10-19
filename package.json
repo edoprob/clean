@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged",
+      "pre-push": "npm run test:ci"
+    }
+  },
   "scripts": {
     "dev": "nodemon",
     "prepare": "husky install",
