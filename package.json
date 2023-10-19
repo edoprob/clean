@@ -21,12 +21,6 @@
       "git add"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged",
-      "pre-push": "npm run test:ci"
-    }
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
