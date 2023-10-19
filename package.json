@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "prepare": "husky install",
+    "prepare:config": "npx husky add .husky/pre-commit \"npx lint-staged\" && npx husky add .husky/pre-push \"npm run test:ci\"",
     "lint": "eslint ./**/*.{ts,tsx,js,jsx} --fix",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
