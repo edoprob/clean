@@ -8,6 +8,10 @@ describe('Account Knex Repository', () => {
     await knex.migrate.latest()
   })
 
+  beforeEach(async () => {
+    await knex('users').del()
+  })
+
   afterAll(async () => {
     await knex.destroy()
   })
