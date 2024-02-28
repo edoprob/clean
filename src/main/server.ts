@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 import { config } from '../database/knex'
 dotenv.config()
 
-const port = process.env.PORT ?? 8000
+const port = process.env.PORT ?? 8080
 const enviroment = process.env.NODE_ENV ?? 'development'
 console.log(`Enviroment: ${enviroment}`)
 
