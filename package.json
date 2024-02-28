@@ -8,7 +8,7 @@
     "ts":"npx ts-node ./src/index.ts",
     "prepare": "husky install",
     "prepare:config": "npx husky add .husky/pre-commit \"npx lint-staged\" && npx husky add .husky/pre-push \"npm run test:ci\"",
-    "migration": "npx knex migrate:make --knexfile ./src/database/knexfile.ts -x ts --stub migration-template.ts",
+    "migration:new": "npx knex migrate:make --knexfile ./src/database/knexfile.ts -x ts --stub migration-template.ts",
     "lint": "eslint ./**/*.{ts,tsx,js,jsx} --fix",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
