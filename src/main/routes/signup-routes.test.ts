@@ -9,15 +9,11 @@ describe('SignUp Routes', () => {
     await knex.migrate.latest()
   })
 
-  beforeEach(async () => {
-    await knex('users').del()
-  })
-
   afterAll(async () => {
     await knex.destroy()
   })
 
-  test('Should return accaount on success', async () => {
+  test('Should return account on success', async () => {
     await request(app)
       .post('/api/signup')
       .send({

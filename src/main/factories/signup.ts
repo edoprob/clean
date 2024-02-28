@@ -3,7 +3,7 @@ import { EmailValidatorAdapter } from '../../utils/email-validator-adapter'
 import { DbAddAccount } from '../../data/usecases/add-account/db-add-account'
 import { BcryptAdapter } from '../../infra/criptography/bcrypt-adapter'
 import { AccountKnexRepository } from '../../infra/db/knex/account-repository/account'
-import { knex } from '../server'
+import knex from '../config/db'
 
 export const makeSignUpController = (): SignUpController => {
   const salt = 12

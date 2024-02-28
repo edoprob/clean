@@ -1,12 +1,6 @@
-import dotenv from 'dotenv'
-import { config } from '../database/knex'
-dotenv.config()
+import knex from './config/db'
 
 const port = process.env.PORT ?? 8080
-const enviroment = process.env.NODE_ENV ?? 'development'
-console.log(`Enviroment: ${enviroment}`)
-
-export const knex = config(enviroment)
 knex.raw('SELECT 1')
   .then(async () => {
     console.log('Successful DB connection')
