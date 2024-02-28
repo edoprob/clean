@@ -6,7 +6,7 @@ const port = process.env.PORT ?? 8000
 const enviroment = process.env.NODE_ENV ?? 'development'
 console.log(`Enviroment: ${enviroment}`)
 
-const knex = config(enviroment)
+export const knex = config(enviroment)
 knex.raw('SELECT 1')
   .then(async () => {
     console.log('Successful DB connection')
