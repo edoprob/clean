@@ -1,3 +1,16 @@
-import app from './config/app'
+import dotenv from 'dotenv'
+import { config } from '../database/knex'
+dotenv.config()
 
-app.listen(8000, () => { console.log('server running at http://localhost:8000') })
+const port = process.env.PORT ?? 8000
+const enviroment = process.env.NODE_ENV ?? 'development'
+console.log(`Enviroment: ${enviroment}`)
+
+const knex = config(enviroment)
+knex.raw('SELECT 1')
+  .then(async () => {
+    console.log('Successful DB connection')
+    const app = (await import('./config/app')).default
+    app.listen(port, () => { console.log(`Server running at http://localhost:${port}`) })
+  })
+  .catch(console.error)

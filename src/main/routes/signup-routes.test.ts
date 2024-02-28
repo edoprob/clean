@@ -3,7 +3,7 @@ import app from '../config/app'
 import { config } from '../../database/knex'
 
 describe('SignUp Routes', () => {
-  const knex = config('test')
+  const knex = config('development')
 
   beforeAll(async () => {
     await knex.migrate.latest()
