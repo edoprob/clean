@@ -1,6 +1,8 @@
+import type { Body } from './response-body'
+
 export interface HttpResponse {
   statusCode: number
-  body: any
+  body: Body
 }
 
 export interface HttpRequest {

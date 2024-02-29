@@ -3,15 +3,30 @@ import { ServerError } from '../errors'
 
 export const badRequest = (error: Error): HttpResponse => ({
   statusCode: 400,
-  body: error
+  body: {
+    success: false,
+    data: {},
+    error: `${error.name}, ${error.message}`
+  }
 })
 
-export const serverError = (): HttpResponse => ({
-  statusCode: 500,
-  body: new ServerError()
-})
+export const serverError = (): HttpResponse => {
+  const error = new ServerError()
+  return {
+    statusCode: 500,
+    body: {
+      success: false,
+      data: {},
+      error: `${error.name}, ${error.message}`
+    }
+  }
+}
 
-export const ok = (data: any): HttpResponse => ({
+export const ok = (data: object): HttpResponse => ({
   statusCode: 200,
-  body: data
+  body: {
+    success: true,
+    data,
+    error: null
+  }
 })

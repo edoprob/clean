@@ -9,7 +9,6 @@ export class AccountKnexRepository implements AddAccountRepository {
   async add (accountData: AddAccountModel): Promise<AccountModel> {
     const result = await this.knex('users').insert(accountData)
     const account = { ...accountData, id: result[0] }
-    console.log(account)
     return account
   }
 }

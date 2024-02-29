@@ -9,6 +9,10 @@ describe('SignUp Routes', () => {
     await knex.migrate.latest()
   })
 
+  beforeEach(async () => {
+    await knex('users').del()
+  })
+
   afterAll(async () => {
     await knex.destroy()
   })
