@@ -1,4 +1,4 @@
-import knex from './config/db'
+import { knex } from './config/db'
 
 const port = process.env.PORT ?? 8080
 knex.raw('SELECT 1')

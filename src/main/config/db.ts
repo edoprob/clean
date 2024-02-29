@@ -5,4 +5,4 @@ dotenv.config()
 const enviroment = process.env.ENVIROMENT ?? 'development'
 console.log(`Enviroment: ${enviroment}`)
 
-export default config(enviroment)
+export const knex = config(enviroment)
