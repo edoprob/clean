@@ -11,7 +11,7 @@
     "migration:new": "npx knex migrate:make --knexfile ./src/database/knexfile.ts -x ts --stub migration-template.ts",
     "lint": "eslint ./**/*.{ts,tsx,js,jsx} --fix",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --forceExit",
-    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand --forceExit",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
     "test:staged": "npm test -- --findRelatedTests",

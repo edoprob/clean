@@ -35,4 +35,16 @@ describe('Account Knex Repository', () => {
     expect(account.email).toBe('any_email@mail.com')
     expect(account.password).toBe('any_password')
   })
+
+  test('Should return throw if Knex throws', async () => {
+    const sut = makeSut()
+    jest.spyOn(sut, 'add').mockReturnValueOnce(Promise.reject(new Error('Database connection error')))
+    const promise = sut.add({
+      name: 'any_name',
+      email: 'any_email@mail.com',
+      password: 'any_password'
+    })
+
+    await expect(promise).rejects.toThrow('Database connection error')
+  })
 })
